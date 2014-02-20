@@ -34,7 +34,7 @@
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     self.expanded = !self.expanded;
-    [tableView reloadCellForElements:self, nil];
+    [tableView reloadRowHeights];
 }
 
 @end

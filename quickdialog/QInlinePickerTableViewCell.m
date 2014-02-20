@@ -36,10 +36,14 @@
         self.pickerView.dataSource = self;
         self.pickerView.delegate = self;
         
-        self.pickerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+        self.pickerView.showsSelectionIndicator = YES;
         
         [self.contentView addSubview:self.pickerView];
     }
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.clipsToBounds = YES;
+    self.contentView.clipsToBounds = YES;
 }
 
 - (void)prepareForElement:(QInlinePickerElement*)element {
@@ -68,13 +72,13 @@
     
     self.detailTextLabel.frame = CGRectMake(CGRectGetMaxX(self.textLabel.frame),
                                             0.0,
-                                            CGRectGetWidth(self.frame) - CGRectGetMaxX(self.textLabel.frame) - CGRectGetMinX(self.textLabel.frame),
+                                            CGRectGetWidth(self.contentView.frame) - CGRectGetMaxX(self.textLabel.frame) - CGRectGetMinX(self.textLabel.frame),
                                             kInlinePickerElementHeight);
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
     
     self.pickerView.frame = CGRectMake(CGRectGetMinX(self.textLabel.frame),
                                        kInlinePickerElementHeight,
-                                       CGRectGetWidth(self.frame) - (2.0 * CGRectGetMinX(self.textLabel.frame)),
+                                       CGRectGetWidth(self.contentView.frame) - (2.0 * CGRectGetMinX(self.textLabel.frame)),
                                        kInlinePickerElementExpandedHeight - kInlinePickerElementHeight);
     self.pickerView.backgroundColor = [UIColor clearColor];
 }
@@ -90,10 +94,6 @@
 }
 
 #pragma mark - UIPickerViewDelegate methods
-
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    return self.frame.size.width;
-}
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [self.element.items objectAtIndex:row];
