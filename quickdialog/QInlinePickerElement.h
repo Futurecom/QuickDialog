@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Futurecom interactive AG. All rights reserved.
 //
 
-#import <QuickDialog.h>
+#import "QuickDialog.h"
 
 static const CGFloat kInlinePickerElementHeight = 44.0;
 static const CGFloat kInlinePickerElementExpandedHeight = kInlinePickerElementHeight + 216.0;

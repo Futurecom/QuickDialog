@@ -62,6 +62,8 @@
 #import "QAutoEntryElement.h"
 #import "QAutoEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
+#import "QInlinePickerElement.h"
+#import "QInlinePickerTableViewCell.h"
 
 #import "QRootBuilder.h"
 
