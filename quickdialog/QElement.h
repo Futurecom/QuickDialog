@@ -71,6 +71,8 @@
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
 
+- (void)deselected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
+
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView;
 
 - (void)fetchValueIntoObject:(id)obj;

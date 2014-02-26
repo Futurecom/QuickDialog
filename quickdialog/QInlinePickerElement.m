@@ -37,4 +37,9 @@
     [tableView reloadRowHeights];
 }
 
+- (void)deselected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
+    self.expanded = NO;
+    [tableView reloadRowHeights];
+}
+
 @end

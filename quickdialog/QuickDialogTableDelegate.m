@@ -36,6 +36,13 @@
     [element selected:_tableView controller:_tableView.controller indexPath:indexPath];
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
+    QElement * element = [section getVisibleElementForIndex: indexPath.row];
+    
+    [element deselected:_tableView controller:_tableView.controller indexPath:indexPath];
+}
+
 - (id<UITableViewDelegate, UIScrollViewDelegate>)initForTableView:(QuickDialogTableView *)tableView {
      self = [super init];
     if (self) {
